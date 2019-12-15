@@ -4,9 +4,10 @@ import { PortalModule } from '@angular/cdk/portal';
 import { OverlayModule } from '@angular/cdk/overlay';
 
 import { AppComponent } from './app.component';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ToastComponent],
   imports: [BrowserModule, PortalModule, OverlayModule],
   providers: [],
   bootstrap: [AppComponent],
