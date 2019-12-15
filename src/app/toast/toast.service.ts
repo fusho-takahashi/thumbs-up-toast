@@ -30,8 +30,10 @@ export class ToastService {
 
     const toastPortal = new ComponentPortal(ToastComponent);
     this.containerRef = this.overlayRef.attach(toastPortal);
+    this.containerInstance = this.containerRef.instance;
+
     setTimeout(() => {
-      this.overlayRef.detach();
+      this.containerInstance.startLeaveAnimation();
     }, 4000);
   }
 }

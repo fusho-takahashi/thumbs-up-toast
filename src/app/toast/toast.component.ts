@@ -19,12 +19,16 @@ import {
         style({ transform: 'translateY(72px)' }),
         animate(100),
       ]),
-      transition(':leave', [
-        animate(100, style({ transform: 'translateY(72px)' })),
-      ]),
+      transition('visible => hidden', [animate(100)]),
     ]),
   ],
 })
 export class ToastComponent {
+  isVisible = true;
+
   constructor() {}
+
+  startLeaveAnimation() {
+    this.isVisible = false;
+  }
 }
