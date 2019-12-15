@@ -2,6 +2,7 @@ import { Injectable, ComponentRef } from '@angular/core';
 import { OverlayRef, Overlay, OverlayConfig } from '@angular/cdk/overlay';
 import { ToastComponent } from './toast.component';
 import { ComponentPortal } from '@angular/cdk/portal';
+import { filter, take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -31,6 +32,15 @@ export class ToastService {
     const toastPortal = new ComponentPortal(ToastComponent);
     this.containerRef = this.overlayRef.attach(toastPortal);
     this.containerInstance = this.containerRef.instance;
+
+    this.containerInstance.animationStateChanged
+      .pipe(
+        filter((event) => event.toState === 'hidden'),
+        take(1),
+      )
+      .subscribe(() => {
+        this.overlayRef.detach();
+      });
 
     setTimeout(() => {
       this.containerInstance.startLeaveAnimation();
