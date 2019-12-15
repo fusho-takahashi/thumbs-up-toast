@@ -11,5 +11,6 @@ import { ToastComponent } from './toast/toast.component';
   imports: [BrowserModule, PortalModule, OverlayModule],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents: [ToastComponent],
 })
 export class AppModule {}
