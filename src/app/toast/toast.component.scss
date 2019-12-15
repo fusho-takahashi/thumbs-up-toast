@@ -1,0 +1,15 @@
+:host {
+  background-color: #323232;
+  height: 48px;
+  width: 280px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message {
+  color: #f1f1f1;
+  font-weight: 300;
+  font-size: 14px;
+}
