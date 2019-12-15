@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import {
   animate,
   state,
   style,
   transition,
   trigger,
+  AnimationEvent,
 } from '@angular/animations';
 
 @Component({
@@ -25,10 +26,15 @@ import {
 })
 export class ToastComponent {
   isVisible = true;
+  animationStateChanged = new EventEmitter<AnimationEvent>();
 
   constructor() {}
 
   startLeaveAnimation() {
     this.isVisible = false;
+  }
+
+  onAnimationDone(event: AnimationEvent) {
+    this.animationStateChanged.emit(event);
   }
 }

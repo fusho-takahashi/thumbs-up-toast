@@ -1,3 +1,7 @@
-<div class="toast-container" [@isVisible]="isVisible ? 'visible' : 'hidden'">
+<div
+  class="toast-container"
+  [@isVisible]="isVisible ? 'visible' : 'hidden'"
+  (@isVisible.done)="onAnimationDone($event)"
+>
   <div class="message">[高く評価した動画] に追加されました</div>
 </div>
