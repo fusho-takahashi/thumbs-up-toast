@@ -43,7 +43,7 @@ export class ToastService {
       });
 
     setTimeout(() => {
-      this.containerInstance.startLeaveAnimation();
+      this.containerInstance.isVisible = false;
     }, 4000);
   }
 }

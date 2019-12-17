@@ -30,10 +30,6 @@ export class ToastComponent {
 
   constructor() {}
 
-  startLeaveAnimation() {
-    this.isVisible = false;
-  }
-
   onAnimationDone(event: AnimationEvent) {
     this.animationStateChanged.emit(event);
   }
